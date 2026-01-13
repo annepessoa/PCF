@@ -18,7 +18,10 @@ The **Field Comparer** control provides a flexible way to compare two date field
 
 - **Flexible Field Types:**
   - Supports date fields (DateAndTime.DateOnly, DateAndTime.DateAndTime)
+ ![Dates](FieldComparer/img/Dates.PNG)
+
   - Supports numeric fields (Decimal, Currency, Whole.None)
+  ![Numeric](FieldComparer/img/Numbers.PNG)
 
 - **Visual Feedback:**
   - Color-coded results (success/failure/neutral)
@@ -45,3 +48,4 @@ The **Field Comparer** control provides a flexible way to compare two date field
 | `secondLabel` | SingleLine.Text | No | Friendly label for the second field |
 
 \* At least one field from each pair (firstDate/firstNumber and secondDate/secondNumber) should be bound depending on the comparison type.
+ ![Configurations](FieldComparer/img/Configurations.PNG)
