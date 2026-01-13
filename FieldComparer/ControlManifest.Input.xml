@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <control namespace="APX" constructor="FieldComparer" version="0.0.3"
+    display-name-key="Fields Comparer"
+    description-key="Control to compare date fields and visually indicate the result, availble comparison modes: after, before, equal, in the future, in the past"
+    control-type="standard">
+    <!--external-service-usage
+    node declares whether this 3rd party PCF control is using external service or not, if yes, this
+    control will be considered as premium and please also add the external domain it is using.
+    If it is not using any external service, please set the enabled="false" and DO NOT add any domain
+    below. The "enabled" will be false by default.
+    Example1:
+      <external-service-usage enabled="true">
+        <domain>www.Microsoft.com</domain>
+      </external-service-usage>
+    Example2:
+      <external-service-usage enabled="false">
+      </external-service-usage>
+    -->
+    <external-service-usage enabled="false">
+      <!--UNCOMMENT
+      TO ADD EXTERNAL DOMAINS
+      <domain></domain>
+      <domain></domain>
+      -->
+    </external-service-usage>
+    <!-- property nodes identify specific, configurable pieces of data that the control expects from
+    CDS -->
+    <!-- Bound date fields (lowercase, date-only). Both optional so authors can bind a single date
+    if desired -->
+    <property name="result" display-name-key="Field to display the result"
+      description-key="Field to show the comparer result" of-type="SingleLine.Text" usage="bound"
+      required="true" />
+    <!-- Toggle: if true, the control will write the comparison result into the bound `result` field -->
+    <property name="saveResult" display-name-key="Save Result"
+      description-key="When enabled the control writes the comparison result into the result field"
+      of-type="TwoOptions" usage="input" required="false" />
+    <!-- Toggle: if true, show the icons (emoji) next to the label in the UI -->
+    <property name="showIcons" display-name-key="Show Icons"
+      description-key="When enabled the control displays an icon (emoji) next to the result label"
+      of-type="TwoOptions" usage="input" required="false" />
+    <!-- Comparison mode: manifest-provided dropdown of string keys -->
+    <property name="comparisonMode" display-name-key="Comparison Mode"
+      description-key="Comparison mode: e.g. Should Date 2 be after, before or equal Date 1? Or should the date be in future or in the past?"
+      of-type="Enum" usage="input">
+      <value name="After/Higher Than" display-name-key="After/Higher Than">after</value>
+      <value name="Before/Lower Than" display-name-key="Before/Lower Than">before</value>
+      <value name="Not equal" display-name-key="Not equal">not_equal</value>
+      <value name="Equal" display-name-key="Equal">equal</value>
+      <value name="In The Future" display-name-key="In The Future">in_the_future</value>
+      <value name="In The Past" display-name-key="In The Past">in_the_past</value>
+    </property>
+    <property name="firstDate" display-name-key="First Date" description-key="First date field"
+      of-type-group="date" usage="bound" required="false" />
+    <property name="firstNumber" display-name-key="First Number"
+      description-key="First numeric field" of-type-group="number" usage="bound" required="false" />
+
+
+    <!-- Label customization -->
+    <property name="firstLabel" display-name-key="First Label"
+      description-key="Friendly label for the first Field" of-type="SingleLine.Text" usage="input" />
+    <property name="secondDate" display-name-key="Second Date"
+      description-key="Second date field. Note: for in_the_future and in_the_past modes, if both dates are set the second date will be used."
+      of-type-group="date" usage="bound" required="false" />
+    <property name="secondNumber" display-name-key="Second Number"
+      description-key="Second numeric field" of-type-group="number" usage="bound" required="false" />
+    <property name="secondLabel" display-name-key="Second Label"
+      description-key="Friendly label for the second Field" of-type="SingleLine.Text" usage="input" />
+    <type-group name="date">
+      <type>DateAndTime.DateOnly</type>
+      <type>DateAndTime.DateAndTime</type>
+    </type-group>
+    <type-group name="number">
+      <type>Decimal</type>
+      <type>Currency</type>
+      <type>Whole.None</type>
+    </type-group>
+    <resources>
+      <code path="index.ts" order="1" />
+      <css path="css/FieldComparer.css" order="1" />
+      <!-- UNCOMMENT TO ADD MORE RESOURCES
+ 
+      <resx path="strings/FieldComparer.1033.resx" version="1.0.0" />
+      -->
+    </resources>
+    <!-- UNCOMMENT TO ENABLE THE SPECIFIED API
+    <feature-usage>
+      <uses-feature name="Device.captureAudio" required="true" />
+      <uses-feature name="Device.captureImage" required="true" />
+      <uses-feature name="Device.captureVideo" required="true" />
+      <uses-feature name="Device.getBarcodeValue" required="true" />
+      <uses-feature name="Device.getCurrentPosition" required="true" />
+      <uses-feature name="Device.pickFile" required="true" />
+      <uses-feature name="Utility" required="true" />
+      <uses-feature name="WebAPI" required="true" />
+    </feature-usage>
+    -->
+  </control>
+</manifest>

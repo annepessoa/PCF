@@ -1,0 +1,32 @@
+.APX\.FieldComparer .container{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:6px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.APX\.FieldComparer .pass{
+  background-color:#d4edda; /* light green */
+  color:#155724; /* dark green text */
+}
+
+.APX\.FieldComparer .fail{
+  background-color:#f8d7da; /* light red */
+  color:#721c24; /* dark red text */
+}
+
+.APX\.FieldComparer .neutral{
+  background-color:#e2e3e5; /* neutral gray */
+  color:#383d41; /* dark gray text */
+}
+
+.APX\.FieldComparer .icon{
+  font-size:1.4rem;
+}
+
+.APX\.FieldComparer .label{
+  font-size:0.95rem;
+  display:inline-block;
+}
